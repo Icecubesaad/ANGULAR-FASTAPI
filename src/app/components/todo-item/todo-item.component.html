@@ -1,0 +1,27 @@
+<div  class="w-full flex justify-between p-10 flex-row items-center border-[1px] border-black rounded-md">
+  <div class="flex-col">
+    <p>Icecube</p>
+    <p [ngClass]="{'cross' : data.isDone}" class="font-bold text-xl">{{ data.title }}</p>
+    <p [ngClass]="{'cross' : data.isDone}" class="font-lg">{{ data.desc }}</p>
+  </div>
+  <div class="flex-row justify-center flex items-center gap-2">
+    <button
+    (click)="delete(data.id)"
+      class="w-[auto] p-3 border-[1px] border-transparent rounded-md bg-red-600 text-white"
+    >
+      Delete
+    </button>
+    <button
+    (click)="update(data.id)"
+      class="w-[auto] p-3 border-[1px] border-transparent rounded-md bg-black text-white"
+    >
+      Update
+    </button>
+    <button
+    (click)="isDone(data.id)"
+      class="w-[auto] p-3 border-[1px] border-transparent rounded-md bg-blue-600 text-white"
+    >
+      Completed
+    </button>
+  </div>
+</div>

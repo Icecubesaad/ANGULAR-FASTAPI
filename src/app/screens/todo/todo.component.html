@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class=" h-full w-full flex flex-col items-center justify-center" *ngIf="!loading; else showLoading">
+    <div class="w-full" *ngIf="todos.length>0; else showNull">
+        <div *ngFor="let todo of todos" class="w-full flex flex-col items-center">
+            <app-todo-item (deleteTodo)="delete($event)" (updateTodo)="update($event)" (isDoneTodo)="isDone($event)" class="w-[80%]" [data]="todo" ></app-todo-item>
+        </div>
+    </div>
+    <ng-template #showNull>
+        <p>No Todos to show</p>
+    </ng-template>
+</div>
+
+<ng-template #showLoading>
+    <div class="flex h-[60vh] w-full justify-center items-center">
+        <p>Loading...</p>
+    </div>
+</ng-template>

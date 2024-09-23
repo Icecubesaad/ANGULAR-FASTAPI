@@ -1,0 +1,44 @@
+<div>
+  <app-navbar></app-navbar>
+  <p class="text-3xl text-center">Add Todos here</p>
+  <div class="flex flex-col items-center gap-3 mt-3">
+    <input
+      placeholder="Enter the title"
+      name="title"
+      [value]="payload.title"
+      (input)="changePayload($event)"
+      class="w-[60%] h-[40px] pl-5 placeholder:text-black border-[black] border-[1px] rounded-md"
+    />
+    
+    <input
+      placeholder="Enter the description"
+      name="desc"
+      [value]="payload.desc"
+      (input)="changePayload($event)"
+      class="w-[60%] h-[40px] pl-5 placeholder:text-black border-[black] border-[1px] rounded-md"
+    />
+    
+    <button (click)="submitPayload()" class="w-[10%] p-3 text-xl border-transparent border-[1px] rounded-lg bg-black text-white">
+      Submit
+    </button>
+    
+    <!-- Success message -->
+    <div *ngIf="success; else noSuccess">
+      <p>Todo has been saved!!! ✅</p>
+    </div>
+    <!-- Fallback content for success message -->
+    <ng-template #noSuccess>
+      <!-- This block will only be used when `success` is false -->
+    </ng-template>
+    
+    <!-- Error message -->
+    <div *ngIf="error; else noError">
+      <p>{{ errorMsg }}</p>
+    </div>
+    <!-- Fallback content for error message -->
+    <ng-template #noError>
+      <!-- This block will only be used when `error` is false -->
+    </ng-template>
+  </div>
+
+</div>

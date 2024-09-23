@@ -1,0 +1,4 @@
+integrate mongodb
+make routes to store data
+make controllers
+implement google auth maybe
